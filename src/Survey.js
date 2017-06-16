@@ -35,7 +35,11 @@ class Survey extends Component {
 		})
 	}
 	questionSubmit() {
-		//TODO: work on this too
+		firebase.database().ref('reactSurvey/'+this.state.uid).set({
+			studentName: this.state.studentName,
+			answers: this.state.answers
+		})
+		this.setState({isSubmitted: true});
 	}
 
 	constructor(props){
@@ -43,7 +47,7 @@ class Survey extends Component {
 	
 		this.state = {
 			uid: uuid.v1(),
-			studentName: 'John',
+			studentName: '',
 			answers: {
 				answer1: '',
 				answer2: '',
@@ -61,7 +65,7 @@ class Survey extends Component {
 
 		if (this.state.studentName === '' && this.state.isSubmitted === false) {
 			studentName = <div>
-				<h1>Hey Student, please let us know yout name: </h1>
+				<h1>Hey Student, please let us know your name: </h1>
 				<form onSubmit={this.nameSubmit}>
 					<input className="namy" type="text" placeholder="Enter your name" ref="name" />
 				</form>
