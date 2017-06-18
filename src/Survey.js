@@ -29,6 +29,10 @@ class Survey extends Component {
 			answers.answer2 = event.target.value;
 		} else if (event.target.name === 'answer3') {
 			answers.answer3 = event.target.value;
+		} else if (event.target.name === 'answer4') {
+			answers.answer4 = event.target.value;
+		} else if (event.target.name === 'answer5') {
+			answers.answer5 = event.target.value;
 		}
 		this.setState({answers: answers}, function() {
 			console.log(this.state);
@@ -51,7 +55,9 @@ class Survey extends Component {
 			answers: {
 				answer1: '',
 				answer2: '',
-				answer3: ''
+				answer3: '',
+				answer4: '',
+				answer5: ''
 			},
 			isSubmitted: false
 		};
@@ -85,14 +91,26 @@ class Survey extends Component {
 					<div className="card">
 						<label>You are a:</label> <br />
 						<input type="radio" name="answer2" value="student" onChange={this.answerSelected} /> Student
-						<input type="radio" name="answer2" value="in-job" onChange={this.answerSelected} /> in-job
-						<input type="radio" name="answer2" value="looking-job" onChange={this.answerSelected} /> looking-job
+						<input type="radio" name="answer2" value="in-job" onChange={this.answerSelected} /> In-job
+						<input type="radio" name="answer2" value="looking-job" onChange={this.answerSelected} /> Looking-job
 					</div>
 					<div className="card">
 						<label>Is online learning helpful:</label> <br />
 						<input type="radio" name="answer3" value="yes" onChange={this.answerSelected} /> Yes
 						<input type="radio" name="answer3" value="no" onChange={this.answerSelected} /> No
 						<input type="radio" name="answer3" value="maybe" onChange={this.answerSelected} /> Maybe
+					</div>
+					<div className="card">
+						<label>Would you recommend this course to a friend?</label> <br />
+						<input type="radio" name="answer4" value="yes" onChange={this.answerSelected} /> Yes
+						<input type="radio" name="answer4" value="no" onChange={this.answerSelected} /> No
+						<input type="radio" name="answer4" value="maybe" onChange={this.answerSelected} /> Maybe
+					</div>
+					<div className="card">
+						<label>How did you find out about us?</label> <br />
+						<input type="radio" name="answer5" value="friend" onChange={this.answerSelected} /> Friends
+						<input type="radio" name="answer5" value="google" onChange={this.answerSelected} /> Google
+						<input type="radio" name="answer5" value="other" onChange={this.answerSelected} /> Other
 					</div>
 					<input className="feedback-button" type="submit" value="submit" />
 				</form>
